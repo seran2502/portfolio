@@ -85,7 +85,7 @@
           a chaque changement de filtre — detruisant les classes .reveal et cachant
           tout le contenu.
         -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-2 gap-6">
           <template x-for="p in allProjects" :key="p.id">
             <div
               x-show="filter === 'all' || p.category === filter"
@@ -96,7 +96,7 @@
               x-transition:leave-start="opacity-100 scale-100"
               x-transition:leave-end="opacity-0 scale-95">
               <article class="project-card group h-full rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-colors">
-                <a :href="p.url" class="block photo-frame w-full h-52">
+                <a :href="p.url" class="block photo-frame w-full aspect-square">
                   <img :src="p.img" :alt="p.title" loading="lazy"/>
                 </a>
                 <div class="p-6">
@@ -106,13 +106,23 @@
                   <p class="text-xs text-zinc-400 mb-3" x-text="p.meta"></p>
                   <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4" x-text="p.desc"></p>
                   <div class="flex items-center justify-between">
-                    <a :href="p.url" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nav-link">View project →</a>
+                    <a href="https://www.figma.com/design/4UoU1FYgn2KPzSHtxWXQOe/Portfolio?node-id=0-1&amp;t=eOZJ6Ol6icP6m3bO-1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nav-link">See design →</a>
                     <span class="text-xs text-zinc-400" x-text="p.year"></span>
                   </div>
                 </div>
               </article>
             </div>
           </template>
+          <figure class="project-card group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 min-h-full">
+            <div class="photo-frame w-full aspect-square">
+              <img src="assets/why-space/warehouse-space-editorial.jpg" alt="Modern warehouse interior with organized storage racks" loading="lazy"/>
+            </div>
+            <figcaption class="p-6">
+              <p class="text-xs font-medium text-accent tracking-widest uppercase mb-2">Project atmosphere</p>
+              <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Space that works harder</h2>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">A visual direction for a clearer, more trustworthy warehouse discovery experience.</p>
+            </figcaption>
+          </figure>
         </div>
         <div x-show="visibleCount === 0" x-cloak class="text-center py-20">
           <p class="text-zinc-400 text-sm">No projects in this category yet.</p>
@@ -151,7 +161,7 @@
         filter: 'all',
 
         allProjects: [
-          { id:1, title:'Warehouse Space Sharer', category:'product', categoryLabel:'', tags:[], year:'2026', meta:'UI/UX design · 3 weeks · Figma', desc:'Logistics managers need a quick way to list or rent empty commercial warehouse space to other.', img:'assets/why-space/warehouse-space-sharer-mockup.png', url:'case-study.html' },
+          { id:1, title:'Warehouse Space Sharer', category:'product', categoryLabel:'', tags:[], year:'2026', meta:'UI/UX design · 3 weeks · Figma', desc:'Logistics managers need a quick way to list or rent empty commercial warehouse space to other.', img:'assets/why-space/whyspace-project-showcase.png', url:'case-study.html' },
         ],
 
         get visibleCount() {
