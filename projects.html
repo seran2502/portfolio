@@ -100,16 +100,10 @@
                   <img :src="p.img" :alt="p.title" loading="lazy"/>
                 </a>
                 <div class="p-6">
-                  <div class="flex flex-wrap gap-2 mb-3">
-                    <template x-for="tag in p.tags" :key="tag">
-                      <span class="text-xs px-2.5 py-1 rounded-full"
-                        :class="tag === p.categoryLabel ? 'bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700' : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400'"
-                        x-text="tag"></span>
-                    </template>
-                  </div>
                   <a :href="p.url">
                     <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors" x-text="p.title"></h3>
                   </a>
+                  <p class="text-xs text-zinc-400 mb-3" x-text="p.meta"></p>
                   <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4" x-text="p.desc"></p>
                   <div class="flex items-center justify-between">
                     <a :href="p.url" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nav-link">View project →</a>
@@ -157,7 +151,7 @@
         filter: 'all',
 
         allProjects: [
-          { id:1, title:'Why Space — Warehouse Space-Sharing Platform', category:'product', categoryLabel:'Product design', tags:['Product design','User research','Figma','Figma Make'], year:'2026', desc:'An India-first marketplace concept for finding verified, flexible warehouse capacity and helping warehouse owners monetise idle space through clear listings, matching, comparison, and tour requests.', img:'assets/why-space/why-space-app-mockup.png', url:'case-study.html' },
+          { id:1, title:'Warehouse Space Sharer', category:'product', categoryLabel:'', tags:[], year:'2026', meta:'UI/UX design · 3 weeks · Figma', desc:'Logistics managers need a quick way to list or rent empty commercial warehouse space to other.', img:'assets/why-space/warehouse-space-sharer-mockup.png', url:'case-study.html' },
         ],
 
         get visibleCount() {
